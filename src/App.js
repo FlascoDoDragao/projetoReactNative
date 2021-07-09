@@ -67,7 +67,7 @@ function App() {
           options={{
             tabBarLabel: 'Login',
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="home" color={color} size={size} />
+              <MaterialCommunityIcons name="account-circle" color={color} size={size} />
             ),
           }}
         />
@@ -77,7 +77,7 @@ function App() {
           options={{
             tabBarLabel: 'Carrinho',
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="home" color={color} size={size} />
+              <MaterialCommunityIcons name="cart-outline" color={color} size={size} />
             ),
           }}
         />
