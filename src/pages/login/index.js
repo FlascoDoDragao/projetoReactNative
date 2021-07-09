@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import stylesinput from '../../components/input';
 import stylesbutton from '../../components/button';
+import Header from '../../components/header';
 
 const Login = () => {
   const [username, setUsername] = useState();
@@ -16,6 +17,7 @@ const Login = () => {
   return (
     <SafeAreaView>
       <View>
+        <Header />
         <TextInput
           // style={stylesinput}
           onChangeText={username => setUsername(username)}
@@ -31,7 +33,7 @@ const Login = () => {
         />
         <TouchableHighlight
           // style={stylesbutton}
-          onPress={() => {}}>
+          onPress={() => { }}>
           <Text>Logar</Text>
         </TouchableHighlight>
       </View>

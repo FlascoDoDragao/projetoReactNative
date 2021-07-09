@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import stylesinput from '../../components/input';
 import stylesbutton from '../../components/button';
+import Header from '../../components/header';
 
 const Home = () => {
   const [nome, setNome] = useState();
@@ -15,6 +16,7 @@ const Home = () => {
   return (
     <SafeAreaView>
       <View>
+        <Header />
         <TextInput
           // style={stylesinput}
           onChangeText={nome => setNome(nome)}
@@ -23,7 +25,7 @@ const Home = () => {
         />
         <TouchableHighlight
           // style={stylesbutton}
-          onPress={() => {}}>
+          onPress={() => { }}>
           <Text>Buscar</Text>
         </TouchableHighlight>
       </View>
