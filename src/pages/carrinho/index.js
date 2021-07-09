@@ -1,10 +1,17 @@
 import React, {useState} from 'react';
-import {View, Text, SafeAreaView, TouchableHighlight} from 'react-native';
+import {
+  View,
+  Text,
+  SafeAreaView,
+  TouchableHighlight,
+  FlatList,
+} from 'react-native';
 import stylesbutton from '../../components/button';
 
 const Home = () => {
   return (
     <SafeAreaView>
+      <FlatList />
       <View>
         <TouchableHighlight
           // style={stylesbutton.button}

@@ -5,6 +5,7 @@ import {
   SafeAreaView,
   TextInput,
   TouchableHighlight,
+  FlatList,
 } from 'react-native';
 import stylesinput from '../../components/input';
 import stylesbutton from '../../components/button';
@@ -27,7 +28,7 @@ const Home = () => {
           <Text>Buscar</Text>
         </TouchableHighlight>
       </View>
-      <View></View>
+      <FlatList />
     </SafeAreaView>
   );
 };
