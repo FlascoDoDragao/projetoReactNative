@@ -12,7 +12,7 @@ import { StyleSheet } from "react-native";
         paddingLeft: 5,
         paddingRight: 5,
         alignItems: "center",
-        backgroundColor: "#6b63b5",
+        backgroundColor: '#392273',
         padding: 10,
         borderRadius: 15,
         elevation: 10,
@@ -20,7 +20,7 @@ import { StyleSheet } from "react-native";
         height: 50
     },
     text:{
-        color: "#9fa1ad",
+        color: '#c7c4cf',
         fontSize: 14,
         fontWeight: '700',
 
