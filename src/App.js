@@ -69,8 +69,13 @@ function App() {
           component={IntermediarioStack}
           options={{
             tabBarLabel: 'Login',
+<<<<<<< HEAD
             tabBarIcon: ({color, size}) => (
               <MaterialCommunityIcons name="home" color={color} size={size} />
+=======
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="account-circle" color={color} size={size} />
+>>>>>>> ad76d4bfe136e0af79fa480408980d5965efb0c8
             ),
           }}
         />
@@ -79,8 +84,13 @@ function App() {
           component={Carrinho}
           options={{
             tabBarLabel: 'Carrinho',
+<<<<<<< HEAD
             tabBarIcon: ({color, size}) => (
               <MaterialCommunityIcons name="home" color={color} size={size} />
+=======
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="cart-outline" color={color} size={size} />
+>>>>>>> ad76d4bfe136e0af79fa480408980d5965efb0c8
             ),
           }}
         />
