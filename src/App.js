@@ -4,16 +4,44 @@ import React from 'react';
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Login from './pages/login';
 import Home from './pages/home';
 import Carrinho from './pages/carrinho';
+import Intermediario from './pages/intermediario';
+import Cadastro from './pages/cadastro'
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
+
+function IntermediarioStack() {
+  return (
+    <Stack.Navigator
+      initialRouteName="Intermediario"
+      screenOptions={{
+        headerStyle: { backgroundColor: '#392273' },
+        headerTintColor: '#fff',
+        headerTitleStyle: { fontWeight: 'bold' }
+      }}>
+      <Stack.Screen
+        name="Intermediario"
+        component={IntermediarioStack}
+        options={{ title: 'União de Hogwarts' }} />
+
+      <Stack.Screen
+        name="Login"
+        component={Login}
+        options={{ title: 'União de Hogwarts' }} />
+      <Stack.Screen
+        name="Cadastro"
+        component={Cadastro}
+        options={{ title: 'Cadastrar' }} />
+    </Stack.Navigator>
+  )
+}
 
 function App() {
   return (
@@ -28,17 +56,17 @@ function App() {
           component={Home}
           options={{
             tabBarLabel: 'Iní­cio',
-            tabBarIcon: ({color, size}) => (
+            tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="home" color={color} size={size} />
             ),
           }}
         />
         <Tab.Screen
-          name="Login"
-          component={Login}
+          name="Intermediario"
+          component={IntermediarioStack}
           options={{
             tabBarLabel: 'Login',
-            tabBarIcon: ({color, size}) => (
+            tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="home" color={color} size={size} />
             ),
           }}
@@ -48,7 +76,7 @@ function App() {
           component={Carrinho}
           options={{
             tabBarLabel: 'Carrinho',
-            tabBarIcon: ({color, size}) => (
+            tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="home" color={color} size={size} />
             ),
           }}
