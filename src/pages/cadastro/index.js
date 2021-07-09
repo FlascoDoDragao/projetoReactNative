@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import stylesinput from '../../components/input';
 import stylesbutton from '../../components/button';
+import Header from '../../components/header';
 
 const Cadastro = () => {
   const [username, setUsername] = useState();
@@ -15,6 +16,7 @@ const Cadastro = () => {
 
   return (
     <SafeAreaView>
+      <Header />
       <View>
         <TextInput
           // style={stylesinput}
@@ -31,8 +33,8 @@ const Cadastro = () => {
         />
         <TouchableHighlight
           // style={stylesbutton}
-          onPress={() => {}}>
-          <Text>Logar</Text>
+          onPress={() => navigation.navigate('Carrinho')}>
+          <Text>Cadastrar</Text>
         </TouchableHighlight>
       </View>
     </SafeAreaView>

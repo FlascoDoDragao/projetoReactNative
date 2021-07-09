@@ -9,12 +9,14 @@ import {
 } from 'react-native';
 import stylesinput from '../../components/input';
 import stylesbutton from '../../components/button';
+import Header from '../../components/header';
 
 const Home = () => {
   const [nome, setNome] = useState();
 
   return (
     <SafeAreaView>
+      <Header />
       <View>
         <TextInput
           // style={stylesinput}

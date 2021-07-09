@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import stylesinput from '../../components/input';
 import stylesbutton from '../../components/button';
+import Header from '../../components/header';
 
 const Login = () => {
   const [username, setUsername] = useState();
@@ -15,6 +16,7 @@ const Login = () => {
 
   return (
     <SafeAreaView>
+      <Header />
       <View>
         <TextInput
           // style={stylesinput}
@@ -31,7 +33,7 @@ const Login = () => {
         />
         <TouchableHighlight
           // style={stylesbutton}
-          onPress={() => {}}>
+          onPress={() => navigation.navigate('Carrinho')}>
           <Text>Logar</Text>
         </TouchableHighlight>
       </View>

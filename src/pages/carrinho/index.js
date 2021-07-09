@@ -7,10 +7,12 @@ import {
   FlatList,
 } from 'react-native';
 import stylesbutton from '../../components/button';
+import Header from '../../components/header';
 
 const Home = () => {
   return (
     <SafeAreaView>
+      <Header />
       <FlatList />
       <View>
         <TouchableHighlight
