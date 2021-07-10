@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -7,9 +7,11 @@ import {
   TouchableHighlight,
   FlatList,
 } from 'react-native';
-import stylesinput from '../../components/input';
-import stylesbutton from '../../components/button';
+import Input from '../../components/input';
+import Botao from '../../components/button';
 import Header from '../../components/header';
+import Styles from './style';
+
 
 const Home = () => {
   const [nome, setNome] = useState();
@@ -17,18 +19,22 @@ const Home = () => {
   return (
     <SafeAreaView>
       <Header />
-      <View>
-        <TextInput
-          // style={stylesinput}
-          onChangeText={nome => setNome(nome)}
-          value={nome}
-          placeholder="Nome"
-        />
-        <TouchableHighlight
-          // style={stylesbutton}
-          onPress={() => {}}>
-          <Text>Buscar</Text>
-        </TouchableHighlight>
+      <View style={Styles.container}>
+        <View>
+          <Input
+            // style={stylesinput}
+            onChangeText={nome => setNome(nome)}
+            value={nome}
+            placeholder="Nome"
+          />
+        </View>
+        <View style={Styles.containerBotao}>
+          <Botao
+            // style={stylesbutton}
+            title={'Buscar'}
+            onPress={() => { }}>
+          </Botao>
+        </View>
       </View>
       <FlatList />
     </SafeAreaView>
