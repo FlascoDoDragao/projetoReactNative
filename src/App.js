@@ -4,9 +4,9 @@ import React from 'react';
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Login from './pages/login';
 import Home from './pages/home';
@@ -22,25 +22,25 @@ function IntermediarioStack() {
     <Stack.Navigator
       initialRouteName="Intermediario"
       screenOptions={{
-        headerStyle: {backgroundColor: '#392273'},
+        headerStyle: { backgroundColor: '#392273' },
         headerTintColor: '#fff',
-        headerTitleStyle: {fontWeight: 'bold'},
+        headerTitleStyle: { fontWeight: 'bold' },
       }}>
       <Stack.Screen
         name="Intermediario"
         component={Intermediario}
-        options={{title: 'União de Hogwarts'}}
+        options={{ title: 'União de Hogwarts' }}
       />
 
       <Stack.Screen
         name="Login"
         component={Login}
-        options={{title: 'União de Hogwarts'}}
+        options={{ title: 'União de Hogwarts' }}
       />
       <Stack.Screen
         name="Cadastro"
         component={Cadastro}
-        options={{title: 'Cadastrar'}}
+        options={{ title: 'Cadastrar' }}
       />
     </Stack.Navigator>
   );
@@ -59,7 +59,7 @@ function App() {
           component={Home}
           options={{
             tabBarLabel: 'Iní­cio',
-            tabBarIcon: ({color, size}) => (
+            tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="home" color={color} size={size} />
             ),
           }}
@@ -69,13 +69,8 @@ function App() {
           component={IntermediarioStack}
           options={{
             tabBarLabel: 'Login',
-<<<<<<< HEAD
-            tabBarIcon: ({color, size}) => (
-              <MaterialCommunityIcons name="home" color={color} size={size} />
-=======
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="account-circle" color={color} size={size} />
->>>>>>> ad76d4bfe136e0af79fa480408980d5965efb0c8
             ),
           }}
         />
@@ -84,13 +79,8 @@ function App() {
           component={Carrinho}
           options={{
             tabBarLabel: 'Carrinho',
-<<<<<<< HEAD
-            tabBarIcon: ({color, size}) => (
-              <MaterialCommunityIcons name="home" color={color} size={size} />
-=======
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="cart-outline" color={color} size={size} />
->>>>>>> ad76d4bfe136e0af79fa480408980d5965efb0c8
             ),
           }}
         />
