@@ -14,6 +14,8 @@ import Botao from '../../components/button';
 import Header from '../../components/header';
 import Styles from './style';
 import axios from 'axios'
+import { Appbar } from 'react-native-paper';
+
 
 const Home = () => {
   const [nome, setNome] = useState();
@@ -21,6 +23,18 @@ const Home = () => {
   const [num, setNum] = useState(0);
   const [categoria, setCategoria] = useState([]);
   const [mostrar, setMostrar] = useState(true);
+
+  function MyComponent() {
+    return (
+      <Appbar.Header style={Styles.busca}>
+        <Appbar.Content />
+        <Input/>
+        <Appbar.Action icon="magnify" onPress={listarAirline} />
+
+      </Appbar.Header>
+    )
+  };
+
 
   useEffect(() => {
     getProdutos();
@@ -60,21 +74,10 @@ const Home = () => {
 
   return (
     <SafeAreaView>
-      <Header>
-      </Header>
-      <View>
-        <TextInput
-          style={stylesinput}
-          onChangeText={nome => setNome(nome)}
-          value={nome}
-          placeholder="Nome"
-        />
-        <TouchableHighlight
-          style={stylesbutton}
-          onPress={listarAirline}>
-          <Text>Buscar</Text>
-        </TouchableHighlight>
-      </View>
+      <Header/>
+      <MyComponent/>
+     
+
 
       {mostrar &&
 
@@ -127,22 +130,5 @@ const Home = () => {
   );
 };
 
-const Styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    margin: 10,
-    backgroundColor: '#36f539',
-    padding: 2,
-  },
-  title: {
-    fontSize: 16,
-    marginTop: 3,
-    fontWeight: 'bold',
-  },
-  caption: {
-    fontSize: 14,
-    lineHeight: 14,
-  },
 
-})
 export default Home;

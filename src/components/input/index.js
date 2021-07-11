@@ -11,6 +11,7 @@ const Input = ({ placeholder }) => {
         style={Styles.input}
         onChangeText={onChangeText}
         placeholder={placeholder}
+        
       />
       <Text style={Styles.text}></Text>
     </View>

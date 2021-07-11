@@ -8,6 +8,10 @@ const Styles = StyleSheet.create({
     },
     containerBotao:{
         paddingTop:35,
+    },
+    busca:{
+        backgroundColor: '#392273',
+        elevation: 0,
     }
 });
 
