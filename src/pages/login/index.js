@@ -11,40 +11,10 @@ import Styles from './style';
 
 
 const Login = () => {
-  const [username, setUsername] = useState();
-  const [senha, setSenha] = useState();
+
 
   return (
-    <SafeAreaView style={{flex:1, paddingTop: 20}}>
-      {/* <Header /> */}
-      <View style={Styles.container}>
-        <View style={Styles.container2}>
-          <Input
-            // style={stylesinput}
-            onChangeText={username => setUsername(username)}
-            value={username}
-            placeholder="Username"
-          />
-        </View>
-        <View style={Styles.container2}>
-          <Input
-            // style={stylesinput}
-            onChangeText={senha => setSenha(senha)}
-            value={senha}
-            placeholder="Senha"
-            secureTextEntry={true}
-          />
-        </View>
-        <View style={Styles.container2}>
-          <Botao
-            title={'Logar'}
-            // style={stylesbutton}
-            onPress={() => navigation.navigate('Carrinho')}>
-
-          </Botao>
-        </View>
-      </View>
-    </SafeAreaView>
+    <View></View>
   );
 };
 export default Login;
