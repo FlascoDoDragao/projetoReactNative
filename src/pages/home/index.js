@@ -9,10 +9,11 @@ import {
   StyleSheet,
   Image
 } from 'react-native';
-import axios from 'axios';
-import stylesinput from '../../components/input';
-import stylesbutton from '../../components/button';
+import Input from '../../components/input';
+import Botao from '../../components/button';
 import Header from '../../components/header';
+import Styles from './style';
+import axios from 'axios'
 
 const Home = () => {
   const [nome, setNome] = useState();
@@ -59,7 +60,8 @@ const Home = () => {
 
   return (
     <SafeAreaView>
-      <Header />
+      <Header>
+      </Header>
       <View>
         <TextInput
           style={stylesinput}

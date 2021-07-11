@@ -1,29 +1,29 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 const Styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignSelf: "center",
-    padding: 5
-
+    justifyContent: 'center',
+    alignSelf: 'center',
+    padding: 5,
+    paddingTop: 70,
+    paddingRight: 25,
   },
   input: {
-
-    height: 100,
-    width: 100,
+    height: 50,
+    width: 200,
     marginTop: 20,
     marginBottom: 32,
     borderWidth: 1,
-    color: '#6b63b5',
+    borderColor: '#f54a00',
     fontSize: 14,
     fontWeight: '700',
-    borderRadius: 15
+    borderRadius: 15,
+    color: '#f54a00',
   },
   text: {
-    color: '#6b63b5',
-  }
-
+    color: '#f54a00',
+  },
 });
 
 export default Styles;

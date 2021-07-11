@@ -2,15 +2,15 @@ import React from "react";
 import { Text, TextInput, View } from "react-native";
 import Styles from './style';
 
-const Input = () => {
-  const [text, onChangeText] = React.useState("Socorro!!");
+const Input = ({ placeholder }) => {
+  const [text, onChangeText] = React.useState({ placeholder });
 
   return (
     <View style={Styles.container}>
       <TextInput
         style={Styles.input}
         onChangeText={onChangeText}
-        value={text}
+        placeholder={placeholder}
       />
       <Text style={Styles.text}></Text>
     </View>
