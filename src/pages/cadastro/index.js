@@ -3,39 +3,43 @@ import {
   View,
   Text,
   SafeAreaView,
-  TextInput,
-  TouchableHighlight,
 } from 'react-native';
-import stylesinput from '../../components/input';
-import stylesbutton from '../../components/button';
-import Header from '../../components/header';
+import Input from '../../components/input';
+import Botao from '../../components/button';
+import Styles from './style';
 
 const Cadastro = () => {
   const [username, setUsername] = useState();
   const [senha, setSenha] = useState();
 
   return (
-    <SafeAreaView>
-      <Header />
-      <View>
-        <TextInput
+    <SafeAreaView style={{ flex: 1, paddingTop: 20 }}>
+      {/* <Header /> */}
+      <View style={Styles.container}>
+      <View style={Styles.container2}>
+        <Input
           // style={stylesinput}
           onChangeText={username => setUsername(username)}
           value={username}
           placeholder="Username"
         />
-        <TextInput
+        </View>
+        <View style={Styles.container2}>
+        <Input
           // style={stylesinput}
           onChangeText={senha => setSenha(senha)}
           value={senha}
           placeholder="Senha"
           secureTextEntry={true}
         />
-        <TouchableHighlight
+        </View>
+        <View style={Styles.container2}>
+        <Botao
           // style={stylesbutton}
+          title={'Cadastrar'}
           onPress={() => navigation.navigate('Carrinho')}>
-          <Text>Cadastrar</Text>
-        </TouchableHighlight>
+        </Botao>
+        </View>
       </View>
     </SafeAreaView>
   );

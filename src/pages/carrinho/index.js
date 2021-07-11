@@ -6,7 +6,7 @@ import {
   TouchableHighlight,
   FlatList,
 } from 'react-native';
-import stylesbutton from '../../components/button';
+import Botao from '../../components/button';
 import Header from '../../components/header';
 
 const Home = () => {
@@ -15,11 +15,12 @@ const Home = () => {
       <Header />
       <FlatList />
       <View>
-        <TouchableHighlight
+        <Botao
           // style={stylesbutton.button}
+          title={'Comprar'}
           onPress={() => {}}>
-          <Text>Comprar</Text>
-        </TouchableHighlight>
+
+        </Botao>
       </View>
       <View></View>
     </SafeAreaView>
