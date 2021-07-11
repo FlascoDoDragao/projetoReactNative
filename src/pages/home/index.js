@@ -21,19 +21,7 @@ const Home = () => {
       <Header />
       <View style={Styles.container}>
         <View>
-          <Input
-            // style={stylesinput}
-            onChangeText={nome => setNome(nome)}
-            value={nome}
-            placeholder="Nome"
-          />
-        </View>
-        <View style={Styles.containerBotao}>
-          <Botao
-            // style={stylesbutton}
-            title={'Buscar'}
-            onPress={() => { }}>
-          </Botao>
+         
         </View>
       </View>
       <FlatList />

@@ -2,14 +2,16 @@ import React from 'react';
 import { Appbar } from 'react-native-paper';
 import { Platform } from 'react-native';
 import {Icon} from 'react-native-vector-icons/MaterialCommunityIcons';
+import Input from '../input/index';
+import Styles from './style';
 
-const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical';
 
 const MyComponent = () => (
-    <Appbar.Header>
+    <Appbar.Header style={Styles.container}>
        <Appbar.Content />
+        <Input></Input>
         <Appbar.Action icon="magnify" onPress={() => {}} />
-        <Appbar.Action icon={MORE_ICON} onPress={() => {}} />
+ 
     </Appbar.Header>
 );
 
