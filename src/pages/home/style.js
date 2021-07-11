@@ -12,6 +12,7 @@ const Styles = StyleSheet.create({
     busca:{
         backgroundColor: '#392273',
         elevation: 0,
+        width: '100%',
     }
 });
 

@@ -24,16 +24,7 @@ const Home = () => {
   const [categoria, setCategoria] = useState([]);
   const [mostrar, setMostrar] = useState(true);
 
-  function MyComponent() {
-    return (
-      <Appbar.Header style={Styles.busca}>
-        <Appbar.Content />
-        <Input/>
-        <Appbar.Action icon="magnify" onPress={listarAirline} />
 
-      </Appbar.Header>
-    )
-  };
 
 
   useEffect(() => {
@@ -56,6 +47,7 @@ const Home = () => {
 
   }
   function listarAirline() {
+    console.log(nome)
     setMostrar(false);
     axios.get(`https://ecommerceflascododragao.herokuapp.com/produtos`).then((response) => {
 
@@ -71,6 +63,19 @@ const Home = () => {
       console.log(error);
     });
   }
+
+  function MyComponent() {
+    return (
+      <Appbar.Header style={Styles.busca}>
+        <Appbar.Content />
+        <Input        
+        onChangeText={nome => setNome(nome)}
+        value={nome}/>
+        <Appbar.Action icon="magnify" onPress={listarAirline} />
+
+      </Appbar.Header>
+    )
+  };
 
   return (
     <SafeAreaView>
