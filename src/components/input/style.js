@@ -21,7 +21,7 @@ const Styles = StyleSheet.create({
     borderRadius: 15,
     color: '#f54a00',
   },
-  text: {
+  texto: {
     color: '#f54a00',
   },
 });

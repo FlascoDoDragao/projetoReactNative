@@ -9,6 +9,14 @@ const Styles = StyleSheet.create({
     containerBotao: {
         paddingTop: 35,
     },
+    busca: {
+        backgroundColor: '#392273',
+        elevation: 0,
+        width: '100%',
+    },
+    btnAddCart: {
+        backgroundColor: '#fff',
+    },
     containerAct: {
         flex: 1,
         justifyContent: 'center',
@@ -17,8 +25,22 @@ const Styles = StyleSheet.create({
         backgroundColor: '#ecf0f1',
         padding: 8,
     },
-    btnAddCart: {
+    listItem: {
+        marginTop: 10,
+        paddingVertical: 20,
+        paddingHorizontal: 20,
         backgroundColor: '#fff',
+        flexDirection: 'column',
+    },
+    productImage: {
+        width: 100,
+        height: 100,
+        borderRadius: 8,
+        resizeMode: 'contain'
+    },
+    productInfo: {
+        marginLeft: 10,
+        flex: 1,
     },
 });
 
