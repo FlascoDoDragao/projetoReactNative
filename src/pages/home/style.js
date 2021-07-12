@@ -30,7 +30,7 @@ const Styles = StyleSheet.create({
         paddingVertical: 20,
         paddingHorizontal: 20,
         backgroundColor: '#fff',
-        flexDirection: 'column',
+        flexDirection: 'row',
     },
     productImage: {
         width: 100,
