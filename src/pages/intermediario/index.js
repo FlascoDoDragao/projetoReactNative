@@ -20,16 +20,14 @@ const Intermediario = ({ navigation }) => {
         <View style={Styles.container2}>
           <Input
             // style={stylesinput}
-            onChangeText={username => setUsername(username)}
-            value={username}
+            texto={[username, setUsername]}
             placeholder="Username"
           />
         </View>
         <View style={Styles.container2}>
           <Input
             // style={stylesinput}
-            onChangeText={senha => setSenha(senha)}
-            value={senha}
+            texto={[senha,setSenha]}
             placeholder="Senha"
             secureTextEntry={true}
           />

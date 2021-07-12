@@ -7,7 +7,8 @@ import {
   TouchableHighlight,
   FlatList,
   StyleSheet,
-  Image
+  Image,
+  ScrollView
 } from 'react-native';
 import Input from '../../components/input';
 import Botao from '../../components/button';
@@ -66,13 +67,13 @@ const Home = () => {
 
   function MyComponent() {
     return (
+
       <Appbar.Header style={Styles.busca}>
         <Appbar.Content />
-        <Input        
-        onChangeText={nome => setNome(nome)}
-        value={nome}/>
+        <Input
+          texto={[nome, setNome]}
+        />
         <Appbar.Action icon="magnify" onPress={listarAirline} />
-
       </Appbar.Header>
     )
   };
@@ -80,9 +81,7 @@ const Home = () => {
   return (
     <SafeAreaView>
       <Header/>
-      <MyComponent/>
-     
-
+      <MyComponent />
 
       {mostrar &&
 
