@@ -7,7 +7,8 @@ import {
   TouchableHighlight,
   FlatList,
   StyleSheet,
-  Image
+  Image,
+  ScrollView
 } from 'react-native';
 import Input from '../../components/input';
 import Botao from '../../components/button';
@@ -48,7 +49,7 @@ const Home = () => {
       for (var i = 0; i < response.data.length; i++) {
         if (response.data[i].categoria.nome == nome) {
           console.log(response.data[i])
-          setCategoria(response.data[i]);
+          setCategoria([...categoria, response.data[i]]);
           console.log(categoria);
         }
       }
@@ -60,89 +61,72 @@ const Home = () => {
 
   return (
     <SafeAreaView>
-      <Header>
-      </Header>
-      <View>
-        <TextInput
-          style={stylesinput}
-          onChangeText={nome => setNome(nome)}
-          value={nome}
-          placeholder="Nome"
-        />
-        <TouchableHighlight
-          style={stylesbutton}
-          onPress={listarAirline}>
-          <Text>Buscar</Text>
-        </TouchableHighlight>
-      </View>
+      <ScrollView>
+        <Header></Header>
+        <View>
+          <TextInput
+            //style={stylesinput}
+            onChangeText={nome => setNome(nome)}
+            value={nome}
+            placeholder="Nome"
+          />
+          <TouchableHighlight
+            //style={stylesbutton}
+            onPress={listarAirline}>
+            <Text>Buscar</Text>
+          </TouchableHighlight>
+        </View>
 
-      {mostrar &&
+        {mostrar &&
 
-        <FlatList
-          onScrollBeingDrag={aumentarNum}
-          data={produto}
-          keyExtractor={(item, index) => index.toString()}
-          renderItem={({ item }) => (
-            <View>
-              <Text>Nome: {item.nome}</Text>
-              <Text>Valor: {item.valorUnitario}</Text>
-              <Text>Categoria: {item.categoria.nome}</Text>
-              <Image
-                style={{
-                  width: 300,
-                  height: 100,
-                  resizeMode: 'contain'
-                }}
-                source={{
-                  uri: item.url,
-                }} />
-            </View>
-          )}
-        />}
+          <FlatList
+            onScrollBeingDrag={aumentarNum}
+            data={produto}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({ item }) => (
+              <View>
+                <Text>Nome: {item.nome}</Text>
+                <Text>Valor: {item.valorUnitario}</Text>
+                <Text>Categoria: {item.categoria.nome}</Text>
+                <Image
+                  style={{
+                    width: 300,
+                    height: 100,
+                    resizeMode: 'contain'
+                  }}
+                  source={{
+                    uri: item.url,
+                  }} />
+              </View>
+            )}
+          />}
 
-      {!mostrar &&
-        < FlatList
-          onScrollBeingDrag={aumentarNum}
-          data={categoria}
-          keyExtractor={(item, index) => index.toString()}
-          renderItem={({ item }) => (
-            <View>
-              <Text>Nome: {item.nome}</Text>
-              <Text>Valor: {item.valorUnitario}</Text>
-              <Text>Categoria: {item.categoria.nome}</Text>
-              <Image
-                style={{
-                  width: 300,
-                  height: 100,
-                  resizeMode: 'contain'
-                }}
-                source={{
-                  uri: item.url,
-                }} />
-            </View>
-          )}
-        />}
-
+        {!mostrar &&
+          < FlatList
+            onScrollBeingDrag={aumentarNum}
+            data={categoria}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({ item }) => (
+              <View>
+                <Text>Nome: {item.nome}</Text>
+                <Text>Valor: {item.valorUnitario}</Text>
+                <Text>Categoria: {item.categoria.nome}</Text>
+                <Image
+                  style={{
+                    width: 300,
+                    height: 100,
+                    resizeMode: 'contain'
+                  }}
+                  source={{
+                    uri: item.url,
+                  }} />
+              </View>
+            )}
+          />}
+      </ScrollView>
     </SafeAreaView >
   );
 };
 
-const Styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    margin: 10,
-    backgroundColor: '#36f539',
-    padding: 2,
-  },
-  title: {
-    fontSize: 16,
-    marginTop: 3,
-    fontWeight: 'bold',
-  },
-  caption: {
-    fontSize: 14,
-    lineHeight: 14,
-  },
 
-})
 export default Home;
