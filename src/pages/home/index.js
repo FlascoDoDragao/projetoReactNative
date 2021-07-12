@@ -8,14 +8,15 @@ import {
   FlatList,
   StyleSheet,
   Image,
-  ScrollView
+  ScrollView,
+  ActivityIndicator
 } from 'react-native';
 import Input from '../../components/input';
 import Botao from '../../components/button';
 import Header from '../../components/header';
 import Styles from './style';
 import axios from 'axios'
-import { Appbar} from 'react-native-paper';
+import { Appbar } from 'react-native-paper';
 
 
 const Home = () => {
@@ -24,6 +25,7 @@ const Home = () => {
   const [num, setNum] = useState(0);
   const [categoria, setCategoria] = useState([]);
   const [mostrar, setMostrar] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
 
 
@@ -37,13 +39,16 @@ const Home = () => {
   }
 
   getProdutos = (num) => {
+    setIsLoading(true);
     axios.get(`https://ecommerceflascododragao.herokuapp.com/produtos`)
       // Vamos ter que trabalhar no page e no size ()=>getP
       .then((response) => {
         //console.log(response.data);
         setProduto(response.data);
+        setIsLoading(false);
       }).catch(function (error) {
         console.log(error);
+        setIsLoading(false);
       });
 
   }
@@ -69,18 +74,21 @@ const Home = () => {
 
   return (
     <SafeAreaView>
-      <Header/>
-        <Appbar.Header style={Styles.busca}>
-          <Appbar.Content />
-          <Input
-            texto={[nome, setNome]}
-          />
-          <Appbar.Action icon="magnify" onPress={listarAirline} />
-        </Appbar.Header>
-    
+      <Header />
+      <Appbar.Header style={Styles.busca}>
+        <Appbar.Content />
+        <Input
+          texto={[nome, setNome]}
+        />
+        <Appbar.Action icon="magnify" onPress={listarAirline} />
+      </Appbar.Header>
 
-      {mostrar &&
-
+      {(isLoading) ?
+        <View>
+          <ActivityIndicator size="large" color="#5500dc" />
+        </View>
+        :
+        // {mostrar &&
         <FlatList
           onScrollBeingDrag={aumentarNum}
           data={produto}
@@ -102,29 +110,30 @@ const Home = () => {
             </View>
           )}
         />}
-
-      {!mostrar &&
-        < FlatList
-          onScrollBeingDrag={aumentarNum}
-          data={categoria}
-          keyExtractor={(item, index) => index.toString()}
-          renderItem={({ item }) => (
-            <View>
-              <Text>Nome: {item.nome}</Text>
-              <Text>Valor: {item.valorUnitario}</Text>
-              <Text>Categoria: {item.categoria.nome}</Text>
-              <Image
-                style={{
-                  width: 300,
-                  height: 100,
-                  resizeMode: 'contain'
-                }}
-                source={{
-                  uri: item.url,
-                }} />
-            </View>
-          )}
-        />}
+      
+       {/* {!mostrar &&
+      < FlatList
+        onScrollBeingDrag={aumentarNum}
+        data={categoria}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={({ item }) => (
+          <View>
+            <Text>Nome: {item.nome}</Text>
+            <Text>Valor: {item.valorUnitario}</Text>
+            <Text>Categoria: {item.categoria.nome}</Text>
+            <Image
+              style={{
+                width: 300,
+                height: 100,
+                resizeMode: 'contain'
+              }}
+              source={{
+                uri: item.url,
+              }} />
+          </View>
+        )}
+      />} */}
+        
 
     </SafeAreaView >
   );
