@@ -1,46 +1,49 @@
-import React, {useState} from 'react';
+import React, { useContext, useState } from 'react';
 import {
   View,
   Text,
   SafeAreaView,
   TouchableHighlight,
   FlatList,
-  View
 } from 'react-native';
 import Botao from '../../components/button';
 import Header from '../../components/header';
+import CarrinhoContext from '../../context/CarrinhoContext';
+import styles from './style';
 
 const Carrinho = () => {
   const context = useContext(CarrinhoContext);
-    console.log(context.produto);
+  console.log(context.produtos);
 
-    const valorTotal = context.produto.reduce((total, prod) => total + prod.item.valorUnitario, 0).toFixed(2);
-
-return (
-  <SafeAreaView>
-    <Text> Carrinho </Text>
-    <FlatList
-            onScrollBeingDrag={aumentarNum}
-            data={produto}
-            keyExtractor={(item, index) => index.toString()}
-            renderItem={({ item }) => (
-              <View style={Styles.listItem}>
-                <Image
-                  style={{
-                    width: 100,
-                    height: 100,
-                    borderRadius: 8
-                  }}
-                  source={{ uri: item.url }}
-                />
-                <View style={Styles.productInfo}>
-                  <Text style={Styles.listItemText}>Nome: {item.nome}</Text>
-                  <Text style={Styles.listItemText}>Valor: {item.valorUnitario}</Text>
-                  <Text style={Styles.listItemText}>Categoria: {item.categoria.nome}</Text>
-                </View>
-              </View>
-            )
-  </SafeAreaView>
-);
+  const valorTotal = context.produtos
+    .reduce((total, prod) => total + prod.item.valorUnitario, 0)
+    .toFixed(2);
+  return (
+    <SafeAreaView>
+      <Header />
+      <Text style={styles.title}>Itens no Carrinho</Text>
+      <FlatList
+        data={context.produtos}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={({ item, index }) => {
+          return (
+            <View style={styles.rowcontainer}>
+              <Text style={styles.text}>Nome: {item.item.nome}</Text>
+              <Text style={styles.text}>Valor: {item.item.valorUnitario}</Text>
+            </View>
+          );
+        }}
+      />
+      <View>
+        <Text style={styles.total}>Total: {valorTotal}</Text>
+      </View>
+      <View>
+        <Botao
+          // style={stylesbutton.button}
+          title={'Comprar'}
+          onPress={() => { }}></Botao>
+      </View>
+    </SafeAreaView>
+  );
 };
 export default Carrinho;
