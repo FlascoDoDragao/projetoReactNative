@@ -15,7 +15,7 @@ import Botao from '../../components/button';
 import Header from '../../components/header';
 import Styles from './style';
 import axios from 'axios'
-import { Appbar } from 'react-native-paper';
+import { Appbar} from 'react-native-paper';
 
 
 const Home = () => {
@@ -65,23 +65,19 @@ const Home = () => {
     });
   }
 
-  function MyComponent() {
-    return (
 
-      <Appbar.Header style={Styles.busca}>
-        <Appbar.Content />
-        <Input
-          texto={[nome, setNome]}
-        />
-        <Appbar.Action icon="magnify" onPress={listarAirline} />
-      </Appbar.Header>
-    )
-  };
 
   return (
     <SafeAreaView>
       <Header/>
-      <MyComponent />
+        <Appbar.Header style={Styles.busca}>
+          <Appbar.Content />
+          <Input
+            texto={[nome, setNome]}
+          />
+          <Appbar.Action icon="magnify" onPress={listarAirline} />
+        </Appbar.Header>
+    
 
       {mostrar &&
 
