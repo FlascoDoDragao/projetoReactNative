@@ -52,7 +52,7 @@ const Home = () => {
   }
 
   return (
-    <SafeAreaView style={{ paddingBottom: 113 }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <Header />
       <Appbar.Header style={Styles.busca}>
         <Appbar.Content />
@@ -88,7 +88,7 @@ const Home = () => {
                 />
               </TouchableOpacity>
               <TouchableOpacity onPress={() => favProduto({ item })}>
-                <Icon name="star" type="ionicon" size={32} color="#f54a00" />
+                <Icon name="star" type="ionicon" size={32} color="#daa520" />
               </TouchableOpacity>
             </View>
           )}

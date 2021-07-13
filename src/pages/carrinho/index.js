@@ -24,7 +24,7 @@ const Carrinho = ({ navigation }) => {
     .toFixed(2);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1 }}>
       <Header />
       <Text style={styles.title}>Itens no Carrinho</Text>
       <FlatList
@@ -59,10 +59,9 @@ const Carrinho = ({ navigation }) => {
 
       <Button
         title={'Comprar'}
-        onPress={() => {
-          navigation.navigate('Login');
-        }
-        }></Button>
+        onPress={() => navigation.navigate('Login')}
+        color='#392273'
+      ></Button>
     </SafeAreaView>
   );
 };

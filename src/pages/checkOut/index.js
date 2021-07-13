@@ -22,12 +22,14 @@ const CheckOut = ({ navigation }) => {
                 <View style={styles.container}>
                     <View style={styles.container2}>
                         <Text style={styles.title}>Finalizar Compra</Text>
-                        <Button color='#392273'
-                            title={'Comprar'}
-                            onPress={() => {
-                                alert('Compra finalizada com sucesso');
-                            }
-                            }></Button>
+                        <View style={{ marginTop: 50 }}>
+                            <Button color='#392273'
+                                title={'Comprar'}
+                                onPress={() => {
+                                    alert('Compra finalizada com sucesso');
+                                }
+                                }></Button>
+                        </View>
                     </View>
                 </View>
             </View>
