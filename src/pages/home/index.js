@@ -11,6 +11,7 @@ import {
 import Input from '../../components/input';
 import Header from '../../components/header';
 import CarrinhoContext from '../../context/CarrinhoContext';
+import FavoritoContext from '../../context/FavoritoContext';
 import Styles from './style';
 import axios from 'axios';
 import { Appbar } from 'react-native-paper';
@@ -25,6 +26,8 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const { addProduto } = useContext(CarrinhoContext);
+  
+  const { favProduto } = useContext(FavoritoContext);
  
 
   useEffect(() => {
@@ -105,6 +108,14 @@ const Home = () => {
                       color="#f54a00"
                     />
                   </TouchableOpacity>
+                  <TouchableOpacity onPress={() => favProduto({ item })}>
+                    <Icon
+                      name="star"
+                      type="ionicon"
+                      size={32}
+                      color="#f54a00"
+                    />
+                  </TouchableOpacity>
                 </View>
               )}
             />
@@ -128,6 +139,14 @@ const Home = () => {
                       type="ionicon"
                       size={36}
                       color="#f54a00"
+                    />
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={() => favProduto({ item })}>
+                    <Icon
+                      name="add-star-outline"
+                      type="ionicon"
+                      size={36}
+                      color="#f20707"
                     />
                   </TouchableOpacity>
                 </View>

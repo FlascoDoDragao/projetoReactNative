@@ -1,14 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {
   View,
   Text,
   SafeAreaView,
-  TouchableHighlight,
   TouchableOpacity,
   FlatList,
-  Image,
-  ScrollView,
-  Button,
+  Image
 } from 'react-native';
 import Header from '../../components/header';
 import FavoritoContext from '../../context/FavoritoContext';
