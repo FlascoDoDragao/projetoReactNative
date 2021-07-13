@@ -10,7 +10,8 @@ const CarrinhoProvider = ({children}) => {
   };
 
   delProduto = produtoId => {
-    setProdutos(produtos.slice(produtoId));
+    console.log(produtoId);
+    setProdutos(produtos.splice(produtoId, 1));
     console.log(produtos);
   };
 
