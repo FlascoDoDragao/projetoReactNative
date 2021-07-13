@@ -12,13 +12,20 @@ const Login = ({ navigation }) => {
   const [senha, setSenha] = useState('');
   const [logado, setLogado] = useState(false);
 
-  const user = ['lucas', 'vanessa', 'paixao', 'mari', 'julia', 'leo', 'matheus', 'joao']
-  const sen = 12345;
+  const { delProduto } = useContext(CarrinhoContext);
 
-  // const logar =() => {
-  //   alert(username);
-  //   alert(senha);
-  // }
+
+  const user = [
+    'lucas',
+    'vanessa',
+    'paixao',
+    'mari',
+    'julia',
+    'leo',
+    'matheus',
+    'joao',
+  ];
+  const sen = 12345;
 
   return (
       <View style={ Styles.containerLeo }>
@@ -48,10 +55,6 @@ const Login = ({ navigation }) => {
               alert('★ Username ou senha incorreta ★');
           }}>
         </BotaoLogin>
-
-        {/* <TouchableOpacity onPress={()=>logar()}>
-          <Text>★LOGIN★</Text>
-        </TouchableOpacity> */}
 
       </View>
   );

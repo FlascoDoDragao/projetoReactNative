@@ -1,11 +1,11 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import {
   View,
   Text,
   SafeAreaView,
   TouchableOpacity,
   FlatList,
-  Image
+  Image,
 } from 'react-native';
 import Header from '../../components/header';
 import FavoritoContext from '../../context/FavoritoContext';
@@ -13,12 +13,12 @@ import styles from './style';
 import { Icon } from 'react-native-elements';
 
 const favoritos = () => {
-    const context = useContext(FavoritoContext);
-    console.log(context.produtos);
-    const { delProduto } = useContext(FavoritoContext);
+  const context = useContext(FavoritoContext);
+  console.log(context.produtos);
+  const { delProduto } = useContext(FavoritoContext);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1 }}>
       <Header />
       <Text style={styles.title}>Itens favoritos</Text>
       <FlatList
@@ -39,12 +39,7 @@ const favoritos = () => {
                 <TouchableOpacity
                   style={styles.button}
                   onPress={() => delProduto(item.item.id)}>
-                  <Icon
-                    name="trash"
-                    type="ionicon"
-                    size={20}
-                    color="#f54a00"
-                  />
+                  <Icon name="trash" type="ionicon" size={20} color="#DAA520" />
                 </TouchableOpacity>
               </View>
             </View>

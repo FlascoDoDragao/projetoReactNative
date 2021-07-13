@@ -13,14 +13,10 @@ const Input = (props) => {
         value={texto}
         placeholder={props.placeholder}
         secureTextEntry={props.secureTextEntry}
-      
+
       />
       <Text style={Styles.texto}></Text>
     </View>
   );
 };
-
-
-
-
 export default Input;

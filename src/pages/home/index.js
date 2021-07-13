@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {
   View,
   Text,
@@ -14,34 +14,30 @@ import CarrinhoContext from '../../context/CarrinhoContext';
 import FavoritoContext from '../../context/FavoritoContext';
 import Styles from './style';
 import axios from 'axios';
-import {Appbar} from 'react-native-paper';
-import {Icon} from 'react-native-elements';
+import { Appbar } from 'react-native-paper';
+import { Icon } from 'react-native-elements';
 
 const Home = () => {
   const [nome, setNome] = useState();
   const [produto, setProduto] = useState([]);
-  const [num, setNum] = useState(0);
-  const [categoria, setCategoria] = useState([]);
-  const [mostrar, setMostrar] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
+  const [data, setData] = useState([]);
 
-  const {addProduto} = useContext(CarrinhoContext);
+  const { addProduto } = useContext(CarrinhoContext);
 
-  const {favProduto} = useContext(FavoritoContext);
+  const { favProduto } = useContext(FavoritoContext);
 
   useEffect(() => {
-    console.log('oi');
     getProdutos();
-  }, []);
+  }, [setProduto]);
 
-  getProdutos = num => {
+  getProdutos = () => {
     setIsLoading(true);
     axios
       .get(`https://ecommerceflascododragao.herokuapp.com/produtos`)
-      // Vamos ter que trabalhar no page e no size ()=>getP
       .then(response => {
-        //console.log(response.data);
         setProduto(response.data);
+        setData(response.data);
         setIsLoading(false);
       })
       .catch(function (error) {
@@ -49,37 +45,14 @@ const Home = () => {
         setIsLoading(false);
       });
   };
+
   function listarCategoria() {
-    console.log('nome:' + nome);
-    setIsLoading(true);
-    setMostrar(false);
-    var cat = [];
-    var cont = 0;
-    if (nome != '') {
-      axios
-        .get(`https://ecommerceflascododragao.herokuapp.com/produtos`)
-        .then(response => {
-          // console.log(response.data);
-          for (var i = 0; i < response.data.length; i++) {
-            if (response.data[i].categoria.nome == nome) {
-              setIsLoading(false);
-              cat[cont] = response.data[i];
-              cont++;
-            }
-          }
-          setCategoria(cat);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    } else {
-      setProduto([]);
-      getProdutos();
-    }
+    const produtosFiltrados = data.filter(produto => produto.categoria.nome.toLowerCase().includes(nome.toLowerCase()))
+    setProduto(produtosFiltrados)
   }
 
   return (
-    <SafeAreaView style={{paddingBottom: 113}}>
+    <SafeAreaView style={{ flex: 1 }}>
       <Header />
       <Appbar.Header style={Styles.busca}>
         <Appbar.Content />
@@ -91,13 +64,13 @@ const Home = () => {
         <View style={Styles.containerAct}>
           <ActivityIndicator size="large" color="#5500dc" />
         </View>
-      ) : mostrar == true ? (
+      ) : (
         <FlatList
           data={produto}
           keyExtractor={(item, index) => index.toString()}
-          renderItem={({item}) => (
+          renderItem={({ item }) => (
             <View style={Styles.listItem}>
-              <Image style={Styles.productImage} source={{uri: item.url}} />
+              <Image style={Styles.productImage} source={{ uri: item.url }} />
               <View style={Styles.productInfo}>
                 <Text style={Styles.text}>Nome: {item.nome}</Text>
                 <Text style={Styles.text}>Valor: {item.valorUnitario}</Text>
@@ -106,7 +79,7 @@ const Home = () => {
                 </Text>
                 <Text style={Styles.text}>Descrição: {item.descricao}</Text>
               </View>
-              <TouchableOpacity onPress={() => addProduto({item})}>
+              <TouchableOpacity onPress={() => addProduto({ item })}>
                 <Icon
                   name="add-circle-outline"
                   type="ionicon"
@@ -114,47 +87,14 @@ const Home = () => {
                   color="#f54a00"
                 />
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => favProduto({item})}>
-                <Icon name="star" type="ionicon" size={32} color="#f54a00" />
-              </TouchableOpacity>
-            </View>
-          )}
-        />
-      ) : (
-        <FlatList
-          data={categoria}
-          keyExtractor={(item, index) => index.toString()}
-          renderItem={({item}) => (
-            <View style={Styles.listItem}>
-              <Image style={Styles.productImage} source={{uri: item.url}} />
-              <View style={Styles.productInfo}>
-                <Text style={Styles.text}>Nome: {item.nome}</Text>
-                <Text style={Styles.text}>Valor: {item.valorUnitario}</Text>
-                <Text style={Styles.text}>
-                  Categoria: {item.categoria.nome}
-                </Text>
-                <Text style={Styles.text}>Descrição: {item.descricao}</Text>
-              </View>
-              <TouchableOpacity onPress={() => addProduto({item})}>
-                <Icon
-                  name="add-circle-outline"
-                  type="ionicon"
-                  size={36}
-                  color="#f54a00"
-                />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => favProduto({item})}>
-                <Icon
-                  name="star"
-                  type="ionicon"
-                  size={32}
-                  color="#f54a00"
-                />
+              <TouchableOpacity onPress={() => favProduto({ item })}>
+                <Icon name="star" type="ionicon" size={32} color="#daa520" />
               </TouchableOpacity>
             </View>
           )}
         />
       )}
+
     </SafeAreaView>
   );
 };

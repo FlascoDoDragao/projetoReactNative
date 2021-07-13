@@ -28,7 +28,9 @@ const styles = StyleSheet.create({
     padding: 8,
     fontSize: 15,
   },
-  total: {},
+  total: {
+    fontSize: 20,
+  },
   container: {
     flex: 1,
     flexDirection: 'row',
@@ -75,10 +77,9 @@ const styles = StyleSheet.create({
   },
   containerBotao: {
     flex: 1,
-    justifyContent: "center",
-    alignSelf: "center",
-    padding: 5
-
+    justifyContent: 'center',
+    alignSelf: 'center',
+    padding: 5,
   },
   botao: {
     paddingLeft: 5,
@@ -95,6 +96,9 @@ const styles = StyleSheet.create({
     color: '#c7c4cf',
     fontSize: 14,
     fontWeight: '700',
+  },
+  lixeira: {
+    alignContent: 'flex-end',
   },
 });
 

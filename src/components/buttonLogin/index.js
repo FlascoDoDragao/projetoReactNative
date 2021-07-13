@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, TouchableHighlight, TouchableOpacity, View} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 import Styles from './style';
 
 const BotaoLogin = ({title, handlePress}) => {
