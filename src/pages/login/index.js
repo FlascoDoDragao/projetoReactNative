@@ -11,7 +11,6 @@ const Login = ({navigation}) => {
   const [senha, setSenha] = useState();
   const [logado, setLogado] = useState(false);
   const contextLogin = useContext(LoginContext);
-  const {delProduto} = useContext(CarrinhoContext);
   const user = [
     'lucas',
     'vanessa',
