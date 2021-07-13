@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, {useContext, useState} from 'react';
 import {
   View,
   Text,
@@ -6,18 +6,18 @@ import {
   TouchableOpacity,
   FlatList,
   Image,
-  TouchableHighlight
+  Button
 } from 'react-native';
 import Botao from '../../components/button';
 import Header from '../../components/header';
 import CarrinhoContext from '../../context/CarrinhoContext';
 import styles from './style';
-import { Icon } from 'react-native-elements';
+import {Icon} from 'react-native-elements';
 
-const Carrinho = () => {
+const Carrinho = ({navigation}) => {
   const context = useContext(CarrinhoContext);
   console.log(context.produtos);
-  const { delProduto } = useContext(CarrinhoContext);
+  const {delProduto} = useContext(CarrinhoContext);
 
   const valorTotal = context.produtos
     .reduce((total, prod) => total + prod.item.valorUnitario, 0)
@@ -30,12 +30,12 @@ const Carrinho = () => {
       <FlatList
         data={context.produtos}
         keyExtractor={(item, index) => index.toString()}
-        renderItem={({ item, index }) => {
+        renderItem={({item, index}) => {
           return (
             <View style={styles.listItem}>
               <Image
                 style={styles.productImage}
-                source={{ uri: item.item.url }}
+                source={{uri: item.item.url}}
               />
               <View style={styles.productInfo}>
                 <Text>Nome: {item.item.nome}</Text>
@@ -45,12 +45,7 @@ const Carrinho = () => {
                 <TouchableOpacity
 
                   onPress={() => delProduto(item.item.id)}>
-                  <Icon
-                    name="trash"
-                    type="ionicon"
-                    size={20}
-                    color="#f54a00"
-                  />
+                  <Icon name="trash" type="ionicon" size={20} color="#f54a00" />
                 </TouchableOpacity>
               </View>
             </View>
@@ -70,6 +65,9 @@ const Carrinho = () => {
         </TouchableOpacity>
       </View>
 
+      <Button
+        title={'Comprar'}
+        onPress={() => alert('Compra realizada')}></Button>
     </SafeAreaView>
   );
 };
