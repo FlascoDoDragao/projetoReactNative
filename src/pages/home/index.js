@@ -19,7 +19,6 @@ import { Icon } from 'react-native-elements';
 const Home = () => {
   const [nome, setNome] = useState();
   const [produto, setProduto] = useState([]);
-  const [num, setNum] = useState(0);
   const [categoria, setCategoria] = useState([]);
   const [mostrar, setMostrar] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
@@ -30,17 +29,11 @@ const Home = () => {
     getProdutos();
   }, [setProduto]);
 
-  function aumentarNum() {
-    setNum(num + 1);
-  }
-
-  getProdutos = num => {
+  getProdutos = () => {
     setIsLoading(true);
     axios
       .get(`https://ecommerceflascododragao.herokuapp.com/produtos`)
-      // Vamos ter que trabalhar no page e no size ()=>getP
       .then(response => {
-        //console.log(response.data);
         setProduto(response.data);
         setIsLoading(false);
       })
@@ -89,7 +82,6 @@ const Home = () => {
         (
           (mostrar == true) ? (
             <FlatList
-              onScrollBeingDrag={aumentarNum}
               data={produto}
               keyExtractor={(item, index) => index.toString()}
               renderItem={({ item }) => (
@@ -115,7 +107,6 @@ const Home = () => {
           )
             :
             <FlatList
-              onScrollBeingDrag={aumentarNum}
               data={categoria}
               keyExtractor={(item, index) => index.toString()}
               renderItem={({ item }) => (

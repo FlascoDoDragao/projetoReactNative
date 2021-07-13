@@ -31,7 +31,6 @@ const Login = ({ navigation }) => {
           </View>
           <View style={Styles.container2}>
             <Input
-
               texto={[senha, setSenha]}
               value={senha}
               placeholder="Senha"

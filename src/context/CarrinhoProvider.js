@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import CarrinhoContext from './CarrinhoContext';
 
-const CarrinhoProvider = ({children}) => {
+const CarrinhoProvider = ({ children }) => {
   const [produtos, setProdutos] = useState([]);
 
   addProduto = produto => {
@@ -10,8 +10,9 @@ const CarrinhoProvider = ({children}) => {
   };
 
   delProduto = produtoId => {
-    setProdutos(produtos.slice(produtoId));
-    console.log(produtos);
+    produtos.splice(produtoId, 1);
+    setProdutos([...produtos]);
+
   };
 
   return (
