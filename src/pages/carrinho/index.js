@@ -45,7 +45,9 @@ const Carrinho = ({navigation}) => {
                 <Text>Valor: {item.item.valorUnitario}</Text>
                 <Text>Categoria: {item.item.categoria.nome}</Text>
                 <Text>Descrição: {item.item.descricao}</Text>
-                <TouchableOpacity onPress={() => delProduto(item.item.id)}>
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={() => delProduto(item.item.id)}>
                   <Icon name="trash" type="ionicon" size={20} color="#f54a00" />
                 </TouchableOpacity>
               </View>
