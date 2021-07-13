@@ -12,7 +12,7 @@ import CarrinhoProvider from './context/CarrinhoProvider';
 import Login from './pages/login';
 import Home from './pages/home';
 import Carrinho from './pages/carrinho';
-import Cadastro from './pages/cadastro';
+
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -30,11 +30,6 @@ function IntermediarioStack() {
       <Stack.Screen
         name="Login"
         component={Login}
-        options={{ title: 'União de Hogwarts' }}
-      />
-      <Stack.Screen
-        name="Cadastro"
-        component={Cadastro}
         options={{ title: 'União de Hogwarts' }}
       />
     </Stack.Navigator>

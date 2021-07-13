@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {
   View,
-  Text,
   SafeAreaView,
 } from 'react-native';
 import Input from '../../components/input';
@@ -34,17 +33,8 @@ const Login = ({ navigation }) => {
         <View style={Styles.container2}>
           <Botao
             title={'Logar'}
-            // style={stylesbutton}
-            onPress={() => navigation.navigate('Carrinho')}>
-
+            handlePress={() => navigation.navigate('Carrinho')}>
           </Botao>
-        </View>
-        <View>
-          <Text
-            style={Styles.textCadastro}
-            onPress={() => navigation.navigate('Cadastro')}>
-            Efetuar cadastro
-          </Text>
         </View>
       </View>
     </SafeAreaView>

@@ -3,12 +3,10 @@ import {
   View,
   Text,
   SafeAreaView,
-  TouchableHighlight,
   TouchableOpacity,
   FlatList,
   Image,
-  ScrollView,
-  Button,
+
 } from 'react-native';
 import Botao from '../../components/button';
 import Header from '../../components/header';
@@ -63,11 +61,11 @@ const Carrinho = () => {
         <Text style={styles.total}>Total: {valorTotal}</Text>
       </View>
 
-      <Button
+      <Botao
         title={'Comprar'}
-        onPress={() => {
-          alert('Compra realizada');
-        }}></Button>
+        handlePress={() =>
+          alert('Compra realizada')
+        }></Botao>
     </SafeAreaView>
   );
 };
