@@ -24,7 +24,7 @@ const Login = ({ navigation }) => {
       <View style={ Styles.containerLeo }>
         <StatusBar hidden />
 
-        {/* <Image style={{width:300, height:200}} source={require('./src')} /> */}
+        {/* <Image style={{width:300, height:200}} source={'./'} /> */}
 
         <TextInput placeholder="Seu Username..." style={Styles.textInput} onChangeText={text=>setUsername(text)} />
         <TextInput secureTextEntry={true} placeholder="Sua Senha..." style={Styles.textInput} onChangeText={text=>setSenha(text)} />
