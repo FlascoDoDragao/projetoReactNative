@@ -11,6 +11,7 @@ import {
 import Input from '../../components/input';
 import Header from '../../components/header';
 import CarrinhoContext from '../../context/CarrinhoContext';
+import FavoritoContext from '../../context/FavoritoContext';
 import Styles from './style';
 import axios from 'axios';
 import {Appbar} from 'react-native-paper';
@@ -26,13 +27,11 @@ const Home = () => {
 
   const {addProduto} = useContext(CarrinhoContext);
 
+  const {favProduto} = useContext(FavoritoContext);
+
   useEffect(() => {
     getProdutos();
   }, [setProduto]);
-
-  function aumentarNum() {
-    setNum(num + 1);
-  }
 
   getProdutos = num => {
     setIsLoading(true);
@@ -87,9 +86,7 @@ const Home = () => {
         </View>
       ) : mostrar == true ? (
         <FlatList
-          onScrollBeingDrag={aumentarNum}
           data={produto}
-          //onrefresh
           keyExtractor={(item, index) => index.toString()}
           renderItem={({item}) => (
             <View style={Styles.listItem}>
@@ -110,12 +107,14 @@ const Home = () => {
                   color="#f54a00"
                 />
               </TouchableOpacity>
+              <TouchableOpacity onPress={() => favProduto({item})}>
+                <Icon name="star" type="ionicon" size={32} color="#f54a00" />
+              </TouchableOpacity>
             </View>
           )}
         />
       ) : (
         <FlatList
-          onScrollBeingDrag={aumentarNum}
           data={categoria}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({item}) => (
@@ -135,6 +134,14 @@ const Home = () => {
                   type="ionicon"
                   size={36}
                   color="#f54a00"
+                />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => favProduto({item})}>
+                <Icon
+                  name="add-star-outline"
+                  type="ionicon"
+                  size={36}
+                  color="#f20707"
                 />
               </TouchableOpacity>
             </View>

@@ -1,41 +1,35 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import {
   View,
   Text,
   SafeAreaView,
   TouchableOpacity,
   FlatList,
-  Image,
-  Button,
+  Image
 } from 'react-native';
-import Botao from '../../components/button';
 import Header from '../../components/header';
-import CarrinhoContext from '../../context/CarrinhoContext';
+import FavoritoContext from '../../context/FavoritoContext';
 import styles from './style';
-import {Icon} from 'react-native-elements';
+import { Icon } from 'react-native-elements';
 
-const Carrinho = ({navigation}) => {
-  const context = useContext(CarrinhoContext);
-  console.log(context.produtos);
-  const {delProduto} = useContext(CarrinhoContext);
-
-  const valorTotal = context.produtos
-    .reduce((total, prod) => total + prod.item.valorUnitario, 0)
-    .toFixed(2);
+const favoritos = () => {
+    const context = useContext(FavoritoContext);
+    console.log(context.produtos);
+    const { delProduto } = useContext(FavoritoContext);
 
   return (
     <SafeAreaView>
       <Header />
-      <Text style={styles.title}>Itens no Carrinho</Text>
+      <Text style={styles.title}>Itens favoritos</Text>
       <FlatList
         data={context.produtos}
         keyExtractor={(item, index) => index.toString()}
-        renderItem={({item, index}) => {
+        renderItem={({ item, index }) => {
           return (
             <View style={styles.listItem}>
               <Image
                 style={styles.productImage}
-                source={{uri: item.item.url}}
+                source={{ uri: item.item.url }}
               />
               <View style={styles.productInfo}>
                 <Text>Nome: {item.item.nome}</Text>
@@ -45,22 +39,19 @@ const Carrinho = ({navigation}) => {
                 <TouchableOpacity
                   style={styles.button}
                   onPress={() => delProduto(item.item.id)}>
-                  <Icon name="trash" type="ionicon" size={20} color="#f54a00" />
+                  <Icon
+                    name="trash"
+                    type="ionicon"
+                    size={20}
+                    color="#f54a00"
+                  />
                 </TouchableOpacity>
               </View>
             </View>
           );
         }}
       />
-      <View>
-        <Text style={styles.total}>Total: {valorTotal}</Text>
-      </View>
-
-      <Button
-        title={'Comprar'}
-        onPress={() => alert('Compra realizada')}></Button>
     </SafeAreaView>
   );
 };
-
-export default Carrinho;
+export default favoritos;
