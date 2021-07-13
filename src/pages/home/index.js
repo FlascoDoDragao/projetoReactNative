@@ -140,7 +140,7 @@ const Home = () => {
                 <Icon
                   name="star"
                   type="ionicon"
-                  size={36}
+                  size={32}
                   color="#f54a00"
                 />
               </TouchableOpacity>
