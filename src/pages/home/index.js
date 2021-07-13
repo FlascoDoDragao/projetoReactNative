@@ -3,17 +3,12 @@ import {
   View,
   Text,
   SafeAreaView,
-  TextInput,
-  TouchableHighlight,
   FlatList,
-  StyleSheet,
   Image,
-  ScrollView,
   ActivityIndicator,
   TouchableOpacity,
 } from 'react-native';
 import Input from '../../components/input';
-import Botao from '../../components/button';
 import Header from '../../components/header';
 import CarrinhoContext from '../../context/CarrinhoContext';
 import Styles from './style';
@@ -56,19 +51,23 @@ const Home = () => {
   };
   function listarCategoria() {
     setIsLoading(true);
-    console.log(nome);
     setMostrar(false);
+    var cat = [];
+    var cont = 0;
     axios
       .get(`https://ecommerceflascododragao.herokuapp.com/produtos`)
       .then(response => {
         // console.log(response.data);
         for (var i = 0; i < response.data.length; i++) {
           if (response.data[i].categoria.nome == nome) {
-            console.log(response.data[i]);
             setIsLoading(false);
+            // cat[cont] = response.data[i];
+            // cont++;
+            setCategoria([...categoria, response.data[i]]);
           }
         }
-        setCategoria([...categoria, response.data[i]]);
+        //setCategoria([...categoria, response.data[i]]);
+        // setCategoria(cat);
       })
       .catch(function (error) {
         console.log(error);

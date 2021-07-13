@@ -12,7 +12,6 @@ import CarrinhoProvider from './context/CarrinhoProvider';
 import Login from './pages/login';
 import Home from './pages/home';
 import Carrinho from './pages/carrinho';
-import Intermediario from './pages/intermediario';
 import Cadastro from './pages/cadastro';
 
 const Stack = createStackNavigator();
@@ -21,17 +20,12 @@ const Tab = createBottomTabNavigator();
 function IntermediarioStack() {
   return (
     <Stack.Navigator
-      initialRouteName="Intermediario"
+      initialRouteName="Login"
       screenOptions={{
         headerStyle: { backgroundColor: '#392273' },
-        headerTintColor: '#fff',
-        headerTitleStyle: { fontWeight: 'bold' },
+        headerTintColor: '#c7c4cf',
+        headerTitleStyle: { fontWeight: 'bold', fontSize: 25 },
       }}>
-      <Stack.Screen
-        name="Intermediario"
-        component={Intermediario}
-        options={{ title: 'União de Hogwarts' }}
-      />
 
       <Stack.Screen
         name="Login"
@@ -41,7 +35,7 @@ function IntermediarioStack() {
       <Stack.Screen
         name="Cadastro"
         component={Cadastro}
-        options={{ title: 'Cadastrar' }}
+        options={{ title: 'União de Hogwarts' }}
       />
     </Stack.Navigator>
   );
@@ -67,7 +61,7 @@ function App() {
             }}
           />
           <Tab.Screen
-            name="Intermediario"
+            name="Login"
             component={IntermediarioStack}
             options={{
               tabBarLabel: 'Login',
