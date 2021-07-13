@@ -30,8 +30,9 @@ const Home = () => {
   const {favProduto} = useContext(FavoritoContext);
 
   useEffect(() => {
+    console.log('oi');
     getProdutos();
-  }, [setProduto]);
+  }, []);
 
   getProdutos = num => {
     setIsLoading(true);
@@ -49,26 +50,32 @@ const Home = () => {
       });
   };
   function listarCategoria() {
+    console.log('nome:' + nome);
     setIsLoading(true);
     setMostrar(false);
     var cat = [];
     var cont = 0;
-    axios
-      .get(`https://ecommerceflascododragao.herokuapp.com/produtos`)
-      .then(response => {
-        // console.log(response.data);
-        for (var i = 0; i < response.data.length; i++) {
-          if (response.data[i].categoria.nome == nome) {
-            setIsLoading(false);
-            cat[cont] = response.data[i];
-            cont++;
+    if (nome != '') {
+      axios
+        .get(`https://ecommerceflascododragao.herokuapp.com/produtos`)
+        .then(response => {
+          // console.log(response.data);
+          for (var i = 0; i < response.data.length; i++) {
+            if (response.data[i].categoria.nome == nome) {
+              setIsLoading(false);
+              cat[cont] = response.data[i];
+              cont++;
+            }
           }
-        }
-        setCategoria(cat);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+          setCategoria(cat);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    } else {
+      setProduto([]);
+      getProdutos();
+    }
   }
 
   return (

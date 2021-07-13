@@ -11,11 +11,14 @@ import {
 import Botao from '../../components/button';
 import Header from '../../components/header';
 import CarrinhoContext from '../../context/CarrinhoContext';
+// import LoginContext from '../../context/LoginContext';
 import styles from './style';
 import {Icon} from 'react-native-elements';
 
 const Carrinho = ({navigation}) => {
   const context = useContext(CarrinhoContext);
+  // const contextLogin = useContext(LoginContext);
+
   console.log(context.produtos);
   const {delProduto} = useContext(CarrinhoContext);
 
