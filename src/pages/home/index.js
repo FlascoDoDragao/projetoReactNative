@@ -61,13 +61,11 @@ const Home = () => {
         for (var i = 0; i < response.data.length; i++) {
           if (response.data[i].categoria.nome == nome) {
             setIsLoading(false);
-            // cat[cont] = response.data[i];
-            // cont++;
-            setCategoria([...categoria, response.data[i]]);
+            cat[cont] = response.data[i];
+            cont++;
           }
         }
-        //setCategoria([...categoria, response.data[i]]);
-        // setCategoria(cat);
+        setCategoria(cat);
       })
       .catch(function (error) {
         console.log(error);
@@ -75,7 +73,7 @@ const Home = () => {
   }
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{paddingBottom: 113}}>
       <Header />
       <Appbar.Header style={Styles.busca}>
         <Appbar.Content />
