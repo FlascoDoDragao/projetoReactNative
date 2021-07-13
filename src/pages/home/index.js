@@ -25,14 +25,11 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const { addProduto } = useContext(CarrinhoContext);
+ 
 
   useEffect(() => {
     getProdutos();
   }, [setProduto]);
-
-  function aumentarNum() {
-    setNum(num + 1);
-  }
 
   getProdutos = num => {
     setIsLoading(true);

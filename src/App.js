@@ -12,6 +12,7 @@ import CarrinhoProvider from './context/CarrinhoProvider';
 import Login from './pages/login';
 import Home from './pages/home';
 import Carrinho from './pages/carrinho';
+import Favorito from './pages/favoritos';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -55,6 +56,16 @@ function App() {
               ),
             }}
           />
+          /*<Tab.Screen
+            name="Favoritos"
+            component={Favorito}
+            options={{
+              tabBarLabel: 'Favoritos',
+              tabBarIcon: ({ color, size }) => (
+                <MaterialCommunityIcons name="star" color={color} size={size} />
+              ),
+            }}
+          />*/
         </Tab.Navigator>
       </NavigationContainer>
     </CarrinhoProvider>
