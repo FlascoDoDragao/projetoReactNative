@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {
   View,
   Text,
@@ -14,8 +14,8 @@ import CarrinhoContext from '../../context/CarrinhoContext';
 import FavoritoContext from '../../context/FavoritoContext';
 import Styles from './style';
 import axios from 'axios';
-import {Appbar} from 'react-native-paper';
-import {Icon} from 'react-native-elements';
+import { Appbar } from 'react-native-paper';
+import { Icon } from 'react-native-elements';
 
 const Home = () => {
   const [nome, setNome] = useState();
@@ -24,9 +24,9 @@ const Home = () => {
   const [mostrar, setMostrar] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
 
-  const {addProduto} = useContext(CarrinhoContext);
+  const { addProduto } = useContext(CarrinhoContext);
 
-  const {favProduto} = useContext(FavoritoContext);
+  const { favProduto } = useContext(FavoritoContext);
 
   useEffect(() => {
     console.log('oi');
@@ -77,7 +77,7 @@ const Home = () => {
   }
 
   return (
-    <SafeAreaView style={{paddingBottom: 113}}>
+    <SafeAreaView style={{ paddingBottom: 113 }}>
       <Header />
       <Appbar.Header style={Styles.busca}>
         <Appbar.Content />
@@ -93,9 +93,9 @@ const Home = () => {
         <FlatList
           data={produto}
           keyExtractor={(item, index) => index.toString()}
-          renderItem={({item}) => (
+          renderItem={({ item }) => (
             <View style={Styles.listItem}>
-              <Image style={Styles.productImage} source={{uri: item.url}} />
+              <Image style={Styles.productImage} source={{ uri: item.url }} />
               <View style={Styles.productInfo}>
                 <Text style={Styles.text}>Nome: {item.nome}</Text>
                 <Text style={Styles.text}>Valor: {item.valorUnitario}</Text>
@@ -104,7 +104,7 @@ const Home = () => {
                 </Text>
                 <Text style={Styles.text}>Descrição: {item.descricao}</Text>
               </View>
-              <TouchableOpacity onPress={() => addProduto({item})}>
+              <TouchableOpacity onPress={() => addProduto({ item })}>
                 <Icon
                   name="add-circle-outline"
                   type="ionicon"
@@ -112,8 +112,8 @@ const Home = () => {
                   color="#f54a00"
                 />
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => favProduto({item})}>
-                <Icon name="star" type="ionicon" size={32} color="#f54a00" />
+              <TouchableOpacity onPress={() => favProduto({ item })}>
+                <Icon name="star" type="ionicon" size={32} color="#DAA520" />
               </TouchableOpacity>
             </View>
           )}
@@ -122,9 +122,9 @@ const Home = () => {
         <FlatList
           data={categoria}
           keyExtractor={(item, index) => index.toString()}
-          renderItem={({item}) => (
+          renderItem={({ item }) => (
             <View style={Styles.listItem}>
-              <Image style={Styles.productImage} source={{uri: item.url}} />
+              <Image style={Styles.productImage} source={{ uri: item.url }} />
               <View style={Styles.productInfo}>
                 <Text style={Styles.text}>Nome: {item.nome}</Text>
                 <Text style={Styles.text}>Valor: {item.valorUnitario}</Text>
@@ -133,7 +133,7 @@ const Home = () => {
                 </Text>
                 <Text style={Styles.text}>Descrição: {item.descricao}</Text>
               </View>
-              <TouchableOpacity onPress={() => addProduto({item})}>
+              <TouchableOpacity onPress={() => addProduto({ item })}>
                 <Icon
                   name="add-circle-outline"
                   type="ionicon"
@@ -141,7 +141,7 @@ const Home = () => {
                   color="#f54a00"
                 />
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => favProduto({item})}>
+              <TouchableOpacity onPress={() => favProduto({ item })}>
                 <Icon name="star" type="ionicon" size={32} color="#f54a00" />
               </TouchableOpacity>
             </View>

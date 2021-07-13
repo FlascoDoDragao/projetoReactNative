@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import {
   View,
   Text,
@@ -10,26 +10,26 @@ import {
 import Header from '../../components/header';
 import FavoritoContext from '../../context/FavoritoContext';
 import styles from './style';
-import {Icon} from 'react-native-elements';
+import { Icon } from 'react-native-elements';
 
 const favoritos = () => {
   const context = useContext(FavoritoContext);
   console.log(context.produtos);
-  const {delProduto} = useContext(FavoritoContext);
+  const { delProduto } = useContext(FavoritoContext);
 
   return (
-    <SafeAreaView style={{paddingBottom: 113}}>
+    <SafeAreaView style={{ paddingBottom: 113 }}>
       <Header />
       <Text style={styles.title}>Itens favoritos</Text>
       <FlatList
         data={context.produtos}
         keyExtractor={(item, index) => index.toString()}
-        renderItem={({item, index}) => {
+        renderItem={({ item, index }) => {
           return (
             <View style={styles.listItem}>
               <Image
                 style={styles.productImage}
-                source={{uri: item.item.url}}
+                source={{ uri: item.item.url }}
               />
               <View style={styles.productInfo}>
                 <Text>Nome: {item.item.nome}</Text>
@@ -39,7 +39,7 @@ const favoritos = () => {
                 <TouchableOpacity
                   style={styles.button}
                   onPress={() => delProduto(item.item.id)}>
-                  <Icon name="trash" type="ionicon" size={20} color="#f54a00" />
+                  <Icon name="trash" type="ionicon" size={20} color="#DAA520" />
                 </TouchableOpacity>
               </View>
             </View>
