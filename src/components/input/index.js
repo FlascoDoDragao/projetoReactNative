@@ -11,6 +11,9 @@ const Input = (props) => {
         style={Styles.input}
         onChangeText={setTexto}
         value={texto}
+        placeholder={props.placeholder}
+        secureTextEntry={props.secureTextEntry}
+      
       />
       <Text style={Styles.texto}></Text>
     </View>
