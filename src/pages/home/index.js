@@ -25,14 +25,11 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const { addProduto } = useContext(CarrinhoContext);
+ 
 
   useEffect(() => {
     getProdutos();
   }, [setProduto]);
-
-  function aumentarNum() {
-    setNum(num + 1);
-  }
 
   getProdutos = num => {
     setIsLoading(true);
@@ -89,7 +86,6 @@ const Home = () => {
         (
           (mostrar == true) ? (
             <FlatList
-              onScrollBeingDrag={aumentarNum}
               data={produto}
               keyExtractor={(item, index) => index.toString()}
               renderItem={({ item }) => (
@@ -115,7 +111,6 @@ const Home = () => {
           )
             :
             <FlatList
-              onScrollBeingDrag={aumentarNum}
               data={categoria}
               keyExtractor={(item, index) => index.toString()}
               renderItem={({ item }) => (
