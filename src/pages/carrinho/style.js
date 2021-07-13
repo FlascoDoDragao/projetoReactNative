@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',
-    alignSelf: 'baseline'
+    alignSelf: 'baseline',
   },
   containerBotao: {
     paddingTop: 35,
@@ -64,12 +64,15 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 8,
-    resizeMode: 'contain'
+    resizeMode: 'contain',
   },
   productInfo: {
     marginLeft: 10,
     flex: 1,
-  }
+  },
+  button: {
+    flexDirection: 'row-reverse',
+  },
 });
 
 export default styles;
