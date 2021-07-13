@@ -12,6 +12,7 @@ import CarrinhoProvider from './context/CarrinhoProvider';
 import Login from './pages/login';
 import Home from './pages/home';
 import Carrinho from './pages/carrinho';
+import Favorito from './pages/favoritos'
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -50,6 +51,16 @@ function App() {
             component={Carrinho}
             options={{
               tabBarLabel: 'Carrinho',
+              tabBarIcon: ({ color, size }) => (
+                <MaterialCommunityIcons name="cart-outline" color={color} size={size} />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Favorito"
+            component={Favorito}
+            options={{
+              tabBarLabel: 'Favorito',
               tabBarIcon: ({ color, size }) => (
                 <MaterialCommunityIcons name="cart-outline" color={color} size={size} />
               ),
