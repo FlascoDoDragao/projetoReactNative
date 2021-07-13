@@ -1,16 +1,16 @@
 import { StyleSheet } from "react-native";
 
 const Styles = StyleSheet.create({
-    container:{
-        backgroundColor:'#ddd',
+    container: {
+        backgroundColor: '#ddd',
         marginHorizontal: 20,
         minHeight: 350,
         elevation: 40,
     },
-    container2:{
+    container2: {
         flex: 1,
     },
-    textCadastro:{
+    textCadastro: {
         color: '#f54a00',
     }
 });
