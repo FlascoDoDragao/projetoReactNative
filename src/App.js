@@ -8,11 +8,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import CarrinhoProvider from './context/CarrinhoProvider';
+import FavoritoProvider from './context/FavoritoProvider';
 
 import Login from './pages/login';
 import Home from './pages/home';
 import Carrinho from './pages/carrinho';
-import Favorito from './pages/favoritos'
+import Favorito from './pages/favoritos';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -20,6 +21,7 @@ const Tab = createBottomTabNavigator();
 function App() {
   return (
     <CarrinhoProvider>
+      <FavoritoProvider>
       <NavigationContainer>
         {/* essa parte fica no final da tela */}
         <Tab.Navigator
@@ -57,17 +59,18 @@ function App() {
             }}
           />
           <Tab.Screen
-            name="Favorito"
+            name="Favoritos"
             component={Favorito}
             options={{
-              tabBarLabel: 'Favorito',
+              tabBarLabel: 'Favoritos',
               tabBarIcon: ({ color, size }) => (
-                <MaterialCommunityIcons name="cart-outline" color={color} size={size} />
+                <MaterialCommunityIcons name="star" color={color} size={size} />
               ),
             }}
           />
         </Tab.Navigator>
       </NavigationContainer>
+      </FavoritoProvider>
     </CarrinhoProvider>
   );
 }

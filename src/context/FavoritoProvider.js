@@ -10,8 +10,10 @@ const FavoritoProvider = ({children}) => {
   };
 
   delProduto = produtoId => {
-    setProdutos(produtos.slice(produtoId));
-    console.log(produtos);
+    //console.log('Deletar o produto de Id: ' + produtoId);
+
+    let produtoAtualizado = produtos.filter(item => item.item.id !== produtoId);
+    setProdutos(produtoAtualizado);
   };
 
   return (
