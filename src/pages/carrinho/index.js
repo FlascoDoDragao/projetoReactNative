@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, { useContext, useState } from 'react';
 import {
   View,
   Text,
@@ -13,32 +13,32 @@ import Header from '../../components/header';
 import CarrinhoContext from '../../context/CarrinhoContext';
 import LoginContext from '../../context/LoginContext';
 import styles from './style';
-import {Icon} from 'react-native-elements';
+import { Icon } from 'react-native-elements';
 
-const Carrinho = ({navigation}) => {
+const Carrinho = ({ navigation }) => {
   const context = useContext(CarrinhoContext);
   const contextLogin = useContext(LoginContext);
 
   console.log(context.produtos);
-  const {delProduto} = useContext(CarrinhoContext);
+  const { delProduto } = useContext(CarrinhoContext);
 
   const valorTotal = context.produtos
     .reduce((total, prod) => total + prod.item.valorUnitario, 0)
     .toFixed(2);
 
   return (
-    <SafeAreaView style={{paddingBottom: 125}}>
+    <SafeAreaView style={{ flex: 1 }}>
       <Header />
       <Text style={styles.title}>Itens no Carrinho</Text>
       <FlatList
         data={context.produtos}
         keyExtractor={(item, index) => index.toString()}
-        renderItem={({item, index}) => {
+        renderItem={({ item, index }) => {
           return (
             <View style={styles.listItem}>
               <Image
                 style={styles.productImage}
-                source={{uri: item.item.url}}
+                source={{ uri: item.item.url }}
               />
               <View style={styles.productInfo}>
                 <Text>Nome: {item.item.nome}</Text>
@@ -62,7 +62,9 @@ const Carrinho = ({navigation}) => {
 
       <Button
         title={'Comprar'}
-        onPress={() => alert('Compra realizada')}></Button>
+        onPress={() => alert('Compra realizada')}
+        color='#392273'
+      ></Button>
     </SafeAreaView>
   );
 };
