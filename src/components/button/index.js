@@ -1,12 +1,11 @@
-import React from "react";
-import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
+import React from 'react';
+import {StyleSheet, Text, TouchableHighlight, View} from 'react-native';
 import Styles from './style';
 
-const Botao = ({ title, handlePress }) => {
-
+const Botao = ({title}) => {
   return (
     <View style={Styles.container}>
-      <TouchableHighlight onPress={handlePress}>
+      <TouchableHighlight>
         <View style={Styles.button}>
           <Text style={Styles.text}>{title}</Text>
         </View>
@@ -14,6 +13,5 @@ const Botao = ({ title, handlePress }) => {
     </View>
   );
 };
-
 
 export default Botao;
