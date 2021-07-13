@@ -20,7 +20,6 @@ import {Icon} from 'react-native-elements';
 const Home = () => {
   const [nome, setNome] = useState();
   const [produto, setProduto] = useState([]);
-  const [num, setNum] = useState(0);
   const [categoria, setCategoria] = useState([]);
   const [mostrar, setMostrar] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
@@ -32,9 +31,9 @@ const Home = () => {
   useEffect(() => {
     console.log('oi');
     getProdutos();
-  }, []);
+  }, [setProduto]);
 
-  getProdutos = num => {
+  getProdutos = () => {
     setIsLoading(true);
     axios
       .get(`https://ecommerceflascododragao.herokuapp.com/produtos`)
@@ -74,7 +73,6 @@ const Home = () => {
         });
     } else {
       setProduto([]);
-      getProdutos();
     }
   }
 
@@ -144,12 +142,7 @@ const Home = () => {
                 />
               </TouchableOpacity>
               <TouchableOpacity onPress={() => favProduto({item})}>
-                <Icon
-                  name="star"
-                  type="ionicon"
-                  size={32}
-                  color="#f54a00"
-                />
+                <Icon name="star" type="ionicon" size={32} color="#f54a00" />
               </TouchableOpacity>
             </View>
           )}

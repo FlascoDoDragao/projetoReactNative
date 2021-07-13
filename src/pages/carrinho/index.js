@@ -6,18 +6,18 @@ import {
   TouchableOpacity,
   FlatList,
   Image,
-  Button
+  Button,
 } from 'react-native';
 import Botao from '../../components/button';
 import Header from '../../components/header';
 import CarrinhoContext from '../../context/CarrinhoContext';
-// import LoginContext from '../../context/LoginContext';
+import LoginContext from '../../context/LoginContext';
 import styles from './style';
 import {Icon} from 'react-native-elements';
 
 const Carrinho = ({navigation}) => {
   const context = useContext(CarrinhoContext);
-  // const contextLogin = useContext(LoginContext);
+  const contextLogin = useContext(LoginContext);
 
   console.log(context.produtos);
   const {delProduto} = useContext(CarrinhoContext);
@@ -45,9 +45,7 @@ const Carrinho = ({navigation}) => {
                 <Text>Valor: {item.item.valorUnitario}</Text>
                 <Text>Categoria: {item.item.categoria.nome}</Text>
                 <Text>Descrição: {item.item.descricao}</Text>
-                <TouchableOpacity
-
-                  onPress={() => delProduto(item.item.id)}>
+                <TouchableOpacity onPress={() => delProduto(item.item.id)}>
                   <Icon name="trash" type="ionicon" size={20} color="#f54a00" />
                 </TouchableOpacity>
               </View>
@@ -58,15 +56,7 @@ const Carrinho = ({navigation}) => {
       <View>
         <Text style={styles.total}>Total: {valorTotal}</Text>
       </View>
-      <View style={styles.containerBotao}>
-        <TouchableOpacity
-          onPress={() => alert('Compra finalizada')}
-        >
-          <View style={styles.botao}>
-            <Text style={styles.textBotao}>Finalizar</Text>
-          </View>
-        </TouchableOpacity>
-      </View>
+      <View style={styles.containerBotao}></View>
 
       <Button
         title={'Comprar'}
