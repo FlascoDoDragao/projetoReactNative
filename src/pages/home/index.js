@@ -137,7 +137,7 @@ const Home = () => {
                 <Icon
                   name="add-circle-outline"
                   type="ionicon"
-                  size={36}
+                  size={20}
                   color="#f54a00"
                 />
               </TouchableOpacity>

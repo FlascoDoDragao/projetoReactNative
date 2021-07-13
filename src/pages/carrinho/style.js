@@ -28,7 +28,9 @@ const styles = StyleSheet.create({
     padding: 8,
     fontSize: 15,
   },
-  total: {},
+  total: {
+    fontSize: 20,
+  },
   container: {
     flex: 1,
     flexDirection: 'row',

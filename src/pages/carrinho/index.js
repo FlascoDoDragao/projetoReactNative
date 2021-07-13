@@ -27,7 +27,7 @@ const Carrinho = ({navigation}) => {
     .toFixed(2);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{paddingBottom: 125}}>
       <Header />
       <Text style={styles.title}>Itens no Carrinho</Text>
       <FlatList
