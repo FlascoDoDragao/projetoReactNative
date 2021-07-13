@@ -13,28 +13,8 @@ import Login from './pages/login';
 import Home from './pages/home';
 import Carrinho from './pages/carrinho';
 
-
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
-
-function IntermediarioStack() {
-  return (
-    <Stack.Navigator
-      initialRouteName="Login"
-      screenOptions={{
-        headerStyle: { backgroundColor: '#392273' },
-        headerTintColor: '#c7c4cf',
-        headerTitleStyle: { fontWeight: 'bold', fontSize: 25 },
-      }}>
-
-      <Stack.Screen
-        name="Login"
-        component={Login}
-        options={{ title: 'União de Hogwarts' }}
-      />
-    </Stack.Navigator>
-  );
-}
 
 function App() {
   return (
@@ -57,7 +37,7 @@ function App() {
           />
           <Tab.Screen
             name="Login"
-            component={IntermediarioStack}
+            component={Login}
             options={{
               tabBarLabel: 'Login',
               tabBarIcon: ({ color, size }) => (
