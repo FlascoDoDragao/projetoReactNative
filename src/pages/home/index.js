@@ -145,10 +145,10 @@ const Home = () => {
               </TouchableOpacity>
               <TouchableOpacity onPress={() => favProduto({item})}>
                 <Icon
-                  name="add-star-outline"
+                  name="star"
                   type="ionicon"
-                  size={36}
-                  color="#f20707"
+                  size={32}
+                  color="#f54a00"
                 />
               </TouchableOpacity>
             </View>

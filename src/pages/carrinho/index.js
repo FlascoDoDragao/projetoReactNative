@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   FlatList,
   Image,
-  Button,
+  Button
 } from 'react-native';
 import Botao from '../../components/button';
 import Header from '../../components/header';
@@ -46,7 +46,7 @@ const Carrinho = ({navigation}) => {
                 <Text>Categoria: {item.item.categoria.nome}</Text>
                 <Text>Descrição: {item.item.descricao}</Text>
                 <TouchableOpacity
-                  style={styles.button}
+
                   onPress={() => delProduto(item.item.id)}>
                   <Icon name="trash" type="ionicon" size={20} color="#f54a00" />
                 </TouchableOpacity>
@@ -57,6 +57,15 @@ const Carrinho = ({navigation}) => {
       />
       <View>
         <Text style={styles.total}>Total: {valorTotal}</Text>
+      </View>
+      <View style={styles.containerBotao}>
+        <TouchableOpacity
+          onPress={() => alert('Compra finalizada')}
+        >
+          <View style={styles.botao}>
+            <Text style={styles.textBotao}>Finalizar</Text>
+          </View>
+        </TouchableOpacity>
       </View>
 
       <Button
