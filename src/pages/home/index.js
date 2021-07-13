@@ -89,7 +89,6 @@ const Home = () => {
         (
           (mostrar == true) ? (
             <FlatList
-              onScrollBeingDrag={aumentarNum}
               data={produto}
               keyExtractor={(item, index) => index.toString()}
               renderItem={({ item }) => (
@@ -115,7 +114,6 @@ const Home = () => {
           )
             :
             <FlatList
-              onScrollBeingDrag={aumentarNum}
               data={categoria}
               keyExtractor={(item, index) => index.toString()}
               renderItem={({ item }) => (
