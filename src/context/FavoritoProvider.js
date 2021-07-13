@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import CarrinhoContext from './CarrinhoContext';
+import React, {useState} from 'react';
+import FavoritoContext from './FavoritoContext';
 
-const CarrinhoProvider = ({ children }) => {
+const FavoritoProvider = ({children}) => {
   const [produtos, setProdutos] = useState([]);
 
-  addProduto = produto => {
+  favProduto = produto => {
     setProdutos([...produtos, produto]);
     console.log(produtos);
   };
@@ -17,15 +17,15 @@ const CarrinhoProvider = ({ children }) => {
   };
 
   return (
-    <CarrinhoContext.Provider
+    <FavoritoContext.Provider
       value={{
         produtos: produtos,
-        addProduto: addProduto,
+        favProduto: favProduto,
         delProduto: delProduto,
       }}>
       {children}
-    </CarrinhoContext.Provider>
+    </FavoritoContext.Provider>
   );
 };
 
-export default CarrinhoProvider;
+export default FavoritoProvider;

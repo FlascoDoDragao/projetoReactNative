@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { Text, TextInput, View } from "react-native";
 import Styles from './style';
 
@@ -13,14 +13,10 @@ const Input = (props) => {
         value={texto}
         placeholder={props.placeholder}
         secureTextEntry={props.secureTextEntry}
-      
+
       />
       <Text style={Styles.texto}></Text>
     </View>
   );
 };
-
-
-
-
 export default Input;

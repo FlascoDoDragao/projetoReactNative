@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import {
   View,
-  Text,
   SafeAreaView,
   Button
 } from 'react-native';
 import Input from '../../components/input';
 import Styles from './style';
 import Header from '../../components/header';
+import Botao from '../../components/button';
 
 const Login = ({ navigation }) => {
   const [username, setUsername] = useState();
@@ -38,9 +38,9 @@ const Login = ({ navigation }) => {
             />
           </View>
           <View style={Styles.container2}>
-            <Button
+            <Botao
               title={'Logar'}
-              onPress={() => {
+              handlePress={() => {
                 var cont = 0;
                 for (var i = 0; i < user.length; i++) {
                   if (user[i] == username)
@@ -56,7 +56,7 @@ const Login = ({ navigation }) => {
                 else
                   alert('Username ou senha incorreta');
               }}>
-            </Button>
+            </Botao>
           </View>
         </View>
       </View>
