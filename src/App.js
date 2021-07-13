@@ -14,16 +14,30 @@ import Login from './pages/login';
 import Home from './pages/home';
 import Carrinho from './pages/carrinho';
 import Favorito from './pages/favoritos';
+import CheckOut from './pages/checkOut';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
+function LoginStack() {
+  return (
+    <Stack.Navigator headerMode="none">
+      <Stack.Screen
+        name="Login"
+        component={Login}
+      />
+      <Stack.Screen
+        name="CheckOut"
+        component={CheckOut}
+      />
+    </Stack.Navigator>
+  );
 
+}
 function App() {
   return (
     <CarrinhoProvider>
       <FavoritoProvider>
         <NavigationContainer>
-          {/* essa parte fica no final da tela */}
           <Tab.Navigator
             tabBarOptions={{
               activeTintColor: '#f54a00',
@@ -40,7 +54,7 @@ function App() {
             />
             <Tab.Screen
               name="Login"
-              component={Login}
+              component={LoginStack}
               options={{
                 tabBarLabel: 'Login',
                 tabBarIcon: ({ color, size }) => (
