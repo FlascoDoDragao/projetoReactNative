@@ -14,11 +14,6 @@ import Header from '../../components/header';
 import CarrinhoContext from '../../context/CarrinhoContext';
 import styles from './style';
 
-function handlePress() {
-  alert("Sua compra foi realizada com sucesso");
-}
-
-
 const Carrinho = () => {
   const context = useContext(CarrinhoContext);
   console.log(context.produtos);
@@ -54,7 +49,7 @@ const Carrinho = () => {
         </View>
 
         <Botao title={'Comprar'}
-          onPress={handlePress}></Botao>
+          onPress={alert('Compra realizada')}></Botao>
 
       </ScrollView>
     </SafeAreaView>

@@ -3,17 +3,12 @@ import {
   View,
   Text,
   SafeAreaView,
-  TextInput,
-  TouchableHighlight,
   FlatList,
-  StyleSheet,
   Image,
-  ScrollView,
   ActivityIndicator,
   TouchableOpacity,
 } from 'react-native';
 import Input from '../../components/input';
-import Botao from '../../components/button';
 import Header from '../../components/header';
 import CarrinhoContext from '../../context/CarrinhoContext';
 import Styles from './style';
@@ -56,19 +51,23 @@ const Home = () => {
   };
   function listarCategoria() {
     setIsLoading(true);
-    console.log(nome);
     setMostrar(false);
+    var cat = [];
+    var cont = 0;
     axios
       .get(`https://ecommerceflascododragao.herokuapp.com/produtos`)
       .then(response => {
         for (var i = 0; i < response.data.length; i++) {
           if (response.data[i].categoria.nome == nome) {
-            console.log(response.data[i]);
             setIsLoading(false);
+            // cat[cont] = response.data[i];
+            // cont++;
             setCategoria([...categoria, response.data[i]]);
-            console.log(categoria);
           }
         }
+        //setCategoria([...categoria, response.data[i]]);
+        // setCategoria(cat);
+
       })
       .catch(function (error) {
         console.log(error);
@@ -77,75 +76,73 @@ const Home = () => {
 
   return (
     <SafeAreaView>
-      <ScrollView>
-        <Header />
-        <Appbar.Header style={Styles.busca}>
-          <Appbar.Content />
-          <Input texto={[nome, setNome]} />
-          <Appbar.Action icon="magnify" onPress={listarCategoria} />
-        </Appbar.Header>
+      <Header />
+      <Appbar.Header style={Styles.busca}>
+        <Appbar.Content />
+        <Input texto={[nome, setNome]} />
+        <Appbar.Action icon="magnify" onPress={listarCategoria} />
+      </Appbar.Header>
 
-        {isLoading ? (
-          <View style={Styles.containerAct}>
-            <ActivityIndicator size="large" color="#5500dc" />
-          </View>
-        )
-          :
-          (
-            (mostrar == true) ? (
-              <FlatList
-                onScrollBeingDrag={aumentarNum}
-                data={produto}
-                keyExtractor={(item, index) => index.toString()}
-                renderItem={({ item }) => (
-                  <View style={Styles.listItem}>
-                    <Image style={Styles.productImage} source={{ uri: item.url }} />
-                    <View style={Styles.productInfo}>
-                      <Text style={Styles.text}>Nome: {item.nome}</Text>
-                      <Text style={Styles.text}>Valor: {item.valorUnitario}</Text>
-                      <Text style={Styles.text}>Categoria: {item.categoria.nome}</Text>
-                      <Text style={Styles.text}>Descrição: {item.descricao}</Text>
-                    </View>
-                    <TouchableOpacity onPress={() => addProduto({ item })}>
-                      <Icon
-                        name="add-circle-outline"
-                        type="ionicon"
-                        size={36}
-                        color="#f54a00"
-                      />
-                    </TouchableOpacity>
+      {isLoading ? (
+        <View style={Styles.containerAct}>
+          <ActivityIndicator size="large" color="#5500dc" />
+        </View>
+      )
+        :
+        (
+          (mostrar == true) ? (
+            <FlatList
+              onScrollBeingDrag={aumentarNum}
+              data={produto}
+              keyExtractor={(item, index) => index.toString()}
+              renderItem={({ item }) => (
+                <View style={Styles.listItem}>
+                  <Image style={Styles.productImage} source={{ uri: item.url }} />
+                  <View style={Styles.productInfo}>
+                    <Text style={Styles.text}>Nome: {item.nome}</Text>
+                    <Text style={Styles.text}>Valor: {item.valorUnitario}</Text>
+                    <Text style={Styles.text}>Categoria: {item.categoria.nome}</Text>
+                    <Text style={Styles.text}>Descrição: {item.descricao}</Text>
                   </View>
-                )}
-              />
-            )
-              :
-              <FlatList
-                onScrollBeingDrag={aumentarNum}
-                data={categoria}
-                keyExtractor={(item, index) => index.toString()}
-                renderItem={({ item }) => (
-                  <View style={Styles.listItem}>
-                    <Image style={Styles.productImage} source={{ uri: item.url }} />
-                    <View style={Styles.productInfo}>
-                      <Text style={Styles.text}>Nome: {item.nome}</Text>
-                      <Text style={Styles.text}>Valor: {item.valorUnitario}</Text>
-                      <Text style={Styles.text}>Categoria: {item.categoria.nome}</Text>
-                      <Text style={Styles.text}>Descrição: {item.descricao}</Text>
-                    </View>
-                    <TouchableOpacity onPress={() => addProduto({ item })}>
-                      <Icon
-                        name="add-circle-outline"
-                        type="ionicon"
-                        size={36}
-                        color="#f54a00"
-                      />
-                    </TouchableOpacity>
-                  </View>
-                )}
-              />
+                  <TouchableOpacity onPress={() => addProduto({ item })}>
+                    <Icon
+                      name="add-circle-outline"
+                      type="ionicon"
+                      size={36}
+                      color="#f54a00"
+                    />
+                  </TouchableOpacity>
+                </View>
+              )}
+            />
           )
-        }
-      </ScrollView>
+            :
+            <FlatList
+              onScrollBeingDrag={aumentarNum}
+              data={categoria}
+              keyExtractor={(item, index) => index.toString()}
+              renderItem={({ item }) => (
+                <View style={Styles.listItem}>
+                  <Image style={Styles.productImage} source={{ uri: item.url }} />
+                  <View style={Styles.productInfo}>
+                    <Text style={Styles.text}>Nome: {item.nome}</Text>
+                    <Text style={Styles.text}>Valor: {item.valorUnitario}</Text>
+                    <Text style={Styles.text}>Categoria: {item.categoria.nome}</Text>
+                    <Text style={Styles.text}>Descrição: {item.descricao}</Text>
+                  </View>
+                  <TouchableOpacity onPress={() => addProduto({ item })}>
+                    <Icon
+                      name="add-circle-outline"
+                      type="ionicon"
+                      size={36}
+                      color="#f54a00"
+                    />
+                  </TouchableOpacity>
+                </View>
+              )}
+            />
+        )
+      }
     </SafeAreaView>
   );
 };
