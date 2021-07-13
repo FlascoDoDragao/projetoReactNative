@@ -15,6 +15,7 @@ import LoginContext from '../../context/LoginContext';
 import styles from './style';
 import { Icon } from 'react-native-elements';
 
+
 const Carrinho = ({ navigation }) => {
   const context = useContext(CarrinhoContext);
   const contextLogin = useContext(LoginContext);
@@ -62,7 +63,7 @@ const Carrinho = ({ navigation }) => {
 
       <Button
         title={'Comprar'}
-        onPress={() => alert('Compra realizada')}
+        onPress={() => navigation.navigate('Login')}
         color='#392273'
       ></Button>
     </SafeAreaView>
