@@ -3,6 +3,12 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#5500dc',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 20,
+        minHeight: 650,
+        elevation: 40,
     },
     rowcontainer: {
         flex: 1,
@@ -13,7 +19,9 @@ const styles = StyleSheet.create({
         borderBottomColor: 'gray',
     },
     title: {
-        marginTop: 20,
+        color: '#c3b8db',
+        marginTop: 30,
+        marginBottom: 10,
         marginLeft: 20,
         fontSize: 30,
         textAlign: 'center',
@@ -21,19 +29,7 @@ const styles = StyleSheet.create({
     text: {
         padding: 10,
         fontSize: 20,
-        color: '#101010',
-    },
-    container: {
-        backgroundColor: '#ddd',
-        marginHorizontal: 20,
-        minHeight: 350,
-        elevation: 40,
-    },
-    container2: {
-        flex: 1,
-    },
-    textCadastro: {
-        color: '#f54a00',
+        color: '#c3b8db',
     }
 });
 

@@ -53,7 +53,7 @@ const Carrinho = ({ navigation }) => {
         }}
       />
       <View>
-        <Text style={styles.total}>Total: {valorTotal}</Text>
+        <Text style={styles.total}>Total: R${valorTotal}</Text>
       </View>
       <View style={styles.containerBotao}></View>
 
